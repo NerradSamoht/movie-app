@@ -1,5 +1,5 @@
 export const key = process.env.API_KEY;
-export const baseUrl = process.env.BASE_URL;
-export const backdropUrl = process.env.BACKDROP;
-export const posterUrl = process.env.POSTER;
-export const personUrl = process.env.PERSON_URL;
+export const baseUrl = "https://api.themoviedb.org/3/movie/";
+export const backdropUrl = "https://image.tmdb.org/t/p/w1280";
+export const posterUrl = "https://image.tmdb.org/t/p/w185";
+export const personUrl = "https://api.themoviedb.org/3/person";
