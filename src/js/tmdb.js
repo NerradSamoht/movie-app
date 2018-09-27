@@ -1,14 +1,5 @@
-const key = process.env.API_KEY;
-const BASE_URL = "https://api.themoviedb.org/3/movie/";
-
-const api = id => {
-  (upcoming = () => {
-    return `${BASE_URL}upcoming?api_key=${key}&language=en&page=1`;
-  }),
-    (movies = () => {
-      return `${BASE_URL}${id}?api_key=${key}`;
-    }),
-    (cast = () => {
-      return `${BASE_URL}${id}/credits?api_key=${key}`;
-    });
-};
+export const key = process.env.API_KEY;
+export const baseUrl = process.env.BASE_URL;
+export const backdropUrl = process.env.BACKDROP;
+export const posterUrl = process.env.POSTER;
+export const personUrl = process.env.PERSON_URL;

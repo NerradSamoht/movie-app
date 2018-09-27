@@ -8,7 +8,7 @@
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "test": "",
-    "dev": "parcel src/index.html"
+    "dev": "parcel --https src/index.html"
   },
   "author": "Darren Thomas",
   "license": "ISC",
