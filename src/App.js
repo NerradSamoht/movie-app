@@ -4,6 +4,7 @@ import { Router } from "@reach/router";
 import Upcoming from "./pages/Upcoming";
 import Movie from "./pages/Movie";
 import Actor from "./pages/Actor";
+import SearchBox from "./components/SearchBox";
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
           <Upcoming path="/" />
           <Movie path="/movie/:id" />
           <Actor path="/actor/:id" />
+          <SearchBox path="/search" />
         </Router>
       </div>
     );

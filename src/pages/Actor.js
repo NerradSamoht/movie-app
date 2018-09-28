@@ -1,8 +1,10 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import { key, posterUrl, personUrl } from "../js/tmdb";
 import Credits from "../components/Credits";
+import SearchBox from "../components/SearchBox";
 import placeholder from "../assets/placeholder.png";
+import { key, posterUrl, personUrl } from "../js/tmdb";
+import { getAge } from "../js/helper";
 
 class Actor extends React.Component {
   state = {
@@ -44,27 +46,34 @@ class Actor extends React.Component {
     }
 
     const { id, name, dob, placeOfBirth, biography, image } = this.state;
+    const age = getAge(dob);
+
     return (
-      <article className="container">
-        <div className="actor-bio">
-          <img
-            className="poster"
-            src={image ? image : placeholder}
-            width="185"
-            height="278"
-            alt={name}
-          />
-          <h1>{name}</h1>
-          <dl>
-            <dt>Date of birth:</dt>
-            <dd>{dob}</dd>
-            <dt>Place of birth:</dt>
-            <dd>{placeOfBirth}</dd>
-          </dl>
-          <p>{biography}</p>
-        </div>
-        <Credits id={id} />
-      </article>
+      <div>
+        <SearchBox />
+        <article className="container actor-page">
+          <div className="description">
+            <img
+              className="poster"
+              src={image ? image : placeholder}
+              width="185"
+              height="278"
+              alt={name}
+            />
+            <h1>{name}</h1>
+            <dl>
+              <dt>Age:</dt>
+              <dd>{age}</dd>
+              <dt>Date of birth:</dt>
+              <dd>{dob}</dd>
+              <dt>Place of birth:</dt>
+              <dd>{placeOfBirth}</dd>
+            </dl>
+            <p>{biography}</p>
+          </div>
+          <Credits id={id} dob={dob} />
+        </article>
+      </div>
     );
   }
 }

@@ -40,8 +40,11 @@ class Cast extends React.Component {
                   alt={actor.name}
                 />
                 <h3>{actor.name}</h3>
-                <p>{actor.character}</p>
               </Link>
+              <dl>
+                <dt className="sr">Character:</dt>
+                <dd>{actor.character}</dd>
+              </dl>
             </div>
           );
         })}

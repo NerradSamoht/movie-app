@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { key, posterUrl, baseUrl } from "../js/tmdb";
+import SearchBox from "../components/SearchBox";
 
 class Upcoming extends React.Component {
   state = {
@@ -21,7 +22,8 @@ class Upcoming extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+        <SearchBox />
         <h1>Upcoming Movies</h1>
         {this.state.movies.map(movie => {
           return (
@@ -39,9 +41,11 @@ class Upcoming extends React.Component {
               <dl>
                 <dt>Release date:</dt>
                 <dd>{movie.release_date}</dd>
-                <dt>Overview:</dt>
-                <dd>{movie.overview}</dd>
               </dl>
+              <div>
+                <h3>Overview:</h3>
+                <p>{movie.overview}</p>
+              </div>
             </article>
           );
         })}
