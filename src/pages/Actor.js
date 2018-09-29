@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import Credits from "../components/Credits";
 import SearchBox from "../components/SearchBox";
 import placeholder from "../assets/placeholder.png";
-import { key, posterUrl, personUrl } from "../js/tmdb";
+import { personUrl, posterUrl } from "../js/tmdb";
 import { getAge } from "../js/helper";
 
 class Actor extends React.Component {
@@ -19,14 +19,14 @@ class Actor extends React.Component {
   };
 
   componentDidMount() {
-    const url = `${personUrl}/${this.props.id}?api_key=${key}`;
+    const url = personUrl(this.props.id);
 
     fetch(url)
       .then(response => response.json())
       .then(data => {
         this.setState({
           id: data.id,
-          image: posterUrl + data.profile_path,
+          image: data.profile_path,
           biography: data.biography,
           dob: data.birthday,
           deathday: data.deathday,
@@ -55,7 +55,7 @@ class Actor extends React.Component {
           <div className="description">
             <img
               className="poster"
-              src={image ? image : placeholder}
+              src={image ? posterUrl(image) : placeholder}
               width="185"
               height="278"
               alt={name}

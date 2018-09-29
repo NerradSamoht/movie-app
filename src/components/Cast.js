@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { key, posterUrl, baseUrl } from "../js/tmdb";
+import { creditsUrl, posterUrl } from "../js/tmdb";
 import placeholder from "../assets/placeholder.png";
 
 class Cast extends React.Component {
@@ -9,7 +9,7 @@ class Cast extends React.Component {
   };
 
   componentDidMount() {
-    const url = `${baseUrl}${this.props.id}/credits?api_key=${key}`;
+    const url = creditsUrl(this.props.id);
 
     fetch(url)
       .then(response => response.json())
@@ -32,7 +32,7 @@ class Cast extends React.Component {
                   className="poster"
                   src={
                     actor.profile_path
-                      ? posterUrl + actor.profile_path
+                      ? posterUrl(actor.profile_path)
                       : placeholder
                   }
                   width="185"

@@ -25,7 +25,7 @@ class SearchBox extends React.Component {
       });
       return;
     }
-    const url = searchUrl + this.state.text;
+    const url = searchUrl(this.state.text);
 
     fetch(url)
       .then(response => response.json())
@@ -65,7 +65,7 @@ class SearchBox extends React.Component {
                         height="150"
                         src={
                           item.profile_path
-                            ? posterUrl + item.profile_path
+                            ? posterUrl(item.profile_path)
                             : placeholder
                         }
                         alt={item.name}
@@ -84,7 +84,7 @@ class SearchBox extends React.Component {
                         height="150"
                         src={
                           item.poster_path
-                            ? posterUrl + item.poster_path
+                            ? posterUrl(item.poster_path)
                             : placeholder
                         }
                         alt={item.title}

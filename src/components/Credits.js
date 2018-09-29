@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { key, posterUrl, personUrl } from "../js/tmdb";
+import { filmographyUrl, posterUrl } from "../js/tmdb";
 import placeholder from "../assets/placeholder.png";
 import { calculateAge } from "../js/helper";
+import { sortBy } from "underscore";
 
 class Credits extends React.Component {
   state = {
@@ -15,7 +16,7 @@ class Credits extends React.Component {
   };
 
   componentDidMount() {
-    const url = `${personUrl}/${this.props.id}/credits?api_key=${key}`;
+    const url = filmographyUrl(this.props.id);
 
     fetch(url)
       .then(response => response.json())
@@ -27,12 +28,8 @@ class Credits extends React.Component {
   }
 
   render() {
-    let movies = []
-      .concat(this.state.movies)
-      .sort(
-        (a, b) =>
-          b.release_date.substring(0, 4) - a.release_date.substring(0, 4)
-      );
+    let { movies } = this.state;
+    movies = sortBy(movies, "release_date").reverse();
 
     return (
       <div className="filmography">
@@ -53,7 +50,7 @@ class Credits extends React.Component {
                     className="poster"
                     src={
                       movie.poster_path
-                        ? posterUrl + movie.poster_path
+                        ? posterUrl(movie.poster_path)
                         : placeholder
                     }
                     width="185"

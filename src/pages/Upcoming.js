@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { key, posterUrl, baseUrl } from "../js/tmdb";
+import { upcomingUrl, posterUrl } from "../js/tmdb";
 import SearchBox from "../components/SearchBox";
+import placeholder from "../assets/placeholder.png";
 
 class Upcoming extends React.Component {
   state = {
@@ -9,7 +10,7 @@ class Upcoming extends React.Component {
   };
 
   componentDidMount() {
-    const url = `${baseUrl}upcoming?api_key=${key}&language=en&page=1`;
+    const url = upcomingUrl();
 
     fetch(url)
       .then(response => response.json())
@@ -34,7 +35,11 @@ class Upcoming extends React.Component {
                   className="poster"
                   width="185"
                   height="278"
-                  src={posterUrl + movie.poster_path}
+                  src={
+                    movie.poster_path
+                      ? posterUrl(movie.poster_path)
+                      : placeholder
+                  }
                   alt={movie.title}
                 />
               </Link>

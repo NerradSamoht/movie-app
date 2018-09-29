@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import { key, posterUrl, baseUrl, backdropUrl } from "../js/tmdb";
+import { movieUrl, backdropUrl, posterUrl } from "../js/tmdb";
 import Cast from "../components/Cast";
 import SearchBox from "../components/SearchBox";
 import placeholder from "../assets/placeholder.png";
@@ -20,7 +20,7 @@ class Movie extends React.Component {
   };
 
   componentDidMount() {
-    const url = `${baseUrl}${this.props.id}?api_key=${key}`;
+    const url = movieUrl(this.props.id);
 
     fetch(url)
       .then(response => response.json())
@@ -67,7 +67,7 @@ class Movie extends React.Component {
           <div>
             <img
               className="backdrop"
-              src={backdropUrl + poster}
+              src={backdropUrl(poster)}
               width="1280"
               alt={title}
             />
@@ -77,7 +77,7 @@ class Movie extends React.Component {
           <div className="description">
             <img
               className="poster"
-              src={image ? posterUrl + image : placeholder}
+              src={image ? posterUrl(image) : placeholder}
               width="185"
               height="278"
               alt={title}
