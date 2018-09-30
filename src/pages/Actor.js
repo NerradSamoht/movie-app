@@ -42,16 +42,21 @@ class Actor extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <h1>loading...</h1>;
+      return (
+        <div className="loading-page">
+          <h1>Movie Stars</h1>
+          <p>Loading...</p>
+        </div>
+      );
     }
 
     const { id, name, dob, placeOfBirth, biography, image } = this.state;
     const age = getAge(dob);
 
     return (
-      <div>
+      <div className="actor-page">
         <SearchBox />
-        <article className="container actor-page">
+        <article className="container">
           <div className="description">
             <img
               className="poster"

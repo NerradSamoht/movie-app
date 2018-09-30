@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  background: #0f0c29;
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  color: hsl(245, 11%, 91%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.4;
+}
+a h3 {
+  color: hsl(245, 11%, 91%);
+}
+a {
+  color: hsl(245, 11%, 91%);
+}
+button:hover {
+  background-color: rgba(255, 148, 246, 0.9);
+  color: #151515;
+}
+.movie-page > article {
+  background: linear-gradient(
+    to right,
+    rgba(36, 36, 62, 0.9),
+    rgba(48, 43, 99, 0.8),
+    rgba(15, 12, 41, 0.7)
+  );
+}
+.sr {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+p {
+  max-width: 960px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  display: grid;
+}
+@media (min-width: 510px) {
+  .description img {
+    float: left;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 110px);
+  grid-gap: 1rem;
+}
+.cast h2 {
+  grid-column: 1/-1;
+}
+.cast h3,
+.filmography h3 {
+  margin: 0;
+}
+.filmography > button {
+  grid-column: 2/-1;
+}
+img {
+  width: 100%;
+}
+.backdrop {
+  max-width: 1280px;
+}
+
+.img-autocomplete {
+  max-width: 100px;
+  max-height: 150px;
+}
+.search input {
+  width: 100%;
+  padding: 0.5rem;
+}
+[id="multilist"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem;
+}
+dt {
+  float: left;
+  margin-right: 8px;
+}
+dd {
+  margin-left: 0;
+}
+.cast dl,
+.filmography dl {
+  margin: 0;
+}
+.movie-age {
+  margin: 0;
+}
+button {
+  margin-bottom: 1em;
+}
+
+/* Upcoming Page */
+.upcoming-page {
+  .poster {
+    max-width: 80px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 20px;
+  }
+  h2 {
+    margin-top: 0;
+    margin-left: 88px;
+  }
+  article {
+    /* border: 1px solid hsl(245, 9%, 47%); */
+    margin-bottom: 20px;
+  }
+  dl {
+    padding-left: 8px;
+  }
+  .overview {
+    padding: 0 8px;
+  }
+  .movie-header {
+    position: relative;
+  }
+  .movie-header img:nth-child(2) {
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+    box-shadow: 1px 1px 4px #3c3c42;
+  }
+}
+
+/* Movie Page */
+.movie-page {
+  .container {
+    padding: 8px;
+  }
+  .poster {
+    max-width: 130px;
+    height: auto;
+    float: left;
+    padding-right: 8px;
+  }
+  .cast {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 110px);
+    grid-gap: 1rem;
+  }
+}
+
+/* Actor Page */
+.actor-page {
+  .container {
+    padding: 8px;
+  }
+  .poster {
+    max-width: 130px;
+    height: auto;
+    float: left;
+    padding-right: 8px;
+  }
+  .cast {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 110px);
+    grid-gap: 1rem;
+  }
+}
+
+.loading-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

@@ -46,7 +46,12 @@ class Movie extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <h1>loading...</h1>;
+      return (
+        <div className="loading-page">
+          <h1>Movie Stars</h1>
+          <p>Loading...</p>
+        </div>
+      );
     }
 
     const {
@@ -64,10 +69,11 @@ class Movie extends React.Component {
     const bg = 'url("' + backdropUrl(poster) + '")';
 
     const bgStyles = {
-      background: bg,
+      backgroundImage: bg,
       backgroundAttachment: "fixed",
       backgroundSize: "cover",
-      backgroundRepeat: "no-repeat"
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center"
     };
 
     return (

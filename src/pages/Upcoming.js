@@ -24,7 +24,7 @@ class Upcoming extends React.Component {
 
   render() {
     return (
-      <div className="container upcoming">
+      <div className="container upcoming-page">
         <SearchBox />
         <h1>Upcoming Movies</h1>
         <div className="grid">
