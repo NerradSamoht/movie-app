@@ -60,43 +60,45 @@ class Movie extends React.Component {
       tagline,
       title
     } = this.state;
+
+    const bg = 'url("' + backdropUrl(poster) + '")';
+
+    const bgStyles = {
+      background: bg,
+      backgroundAttachment: "fixed",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat"
+    };
+
     return (
-      <article>
+      <div style={bgStyles} className="movie-page">
         <SearchBox />
-        {poster && (
-          <div>
-            <img
-              className="backdrop"
-              src={backdropUrl(poster)}
-              width="1280"
-              alt={title}
-            />
+        <article>
+          <div className="container">
+            <div className="description">
+              <img
+                className="poster"
+                src={image ? posterUrl(image) : placeholder}
+                width="185"
+                height="278"
+                alt={title}
+              />
+              <h1>{title}</h1>
+              <p>{tagline}</p>
+              <dl>
+                <dt>Release date:</dt>
+                <dd>{releaseDate}</dd>
+                <dt>Runtime:</dt>
+                <dd>{runtime}</dd>
+                <dt>Genres:</dt>
+                <dd>{genres.join(", ")}</dd>
+              </dl>
+              <p>{overview}</p>
+            </div>
+            <Cast id={id} />
           </div>
-        )}
-        <div className="container">
-          <div className="description">
-            <img
-              className="poster"
-              src={image ? posterUrl(image) : placeholder}
-              width="185"
-              height="278"
-              alt={title}
-            />
-            <h1>{title}</h1>
-            <p>{tagline}</p>
-            <dl>
-              <dt>Release date:</dt>
-              <dd>{releaseDate}</dd>
-              <dt>Runtime:</dt>
-              <dd>{runtime}</dd>
-              <dt>Genres:</dt>
-              <dd>{genres.join(", ")}</dd>
-            </dl>
-            <p>{overview}</p>
-          </div>
-          <Cast id={id} />
-        </div>
-      </article>
+        </article>
+      </div>
     );
   }
 }

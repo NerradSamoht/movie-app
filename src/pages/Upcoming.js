@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { upcomingUrl, posterUrl } from "../js/tmdb";
+import { upcomingUrl, posterUrl, backdropUrl } from "../js/tmdb";
 import SearchBox from "../components/SearchBox";
 import placeholder from "../assets/placeholder.png";
+import placeholderBackdrop from "../assets/placeholder-backdrop.png";
 
 class Upcoming extends React.Component {
   state = {
@@ -23,37 +24,52 @@ class Upcoming extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container upcoming">
         <SearchBox />
         <h1>Upcoming Movies</h1>
-        {this.state.movies.map(movie => {
-          return (
-            <article key={movie.id}>
-              <h2>{movie.title}</h2>
-              <Link to={`/movie/${movie.id}`}>
-                <img
-                  className="poster"
-                  width="185"
-                  height="278"
-                  src={
-                    movie.poster_path
-                      ? posterUrl(movie.poster_path)
-                      : placeholder
-                  }
-                  alt={movie.title}
-                />
-              </Link>
-              <dl>
-                <dt>Release date:</dt>
-                <dd>{movie.release_date}</dd>
-              </dl>
-              <div>
-                <h3>Overview:</h3>
-                <p>{movie.overview}</p>
-              </div>
-            </article>
-          );
-        })}
+        <div className="grid">
+          {this.state.movies.map(movie => {
+            return (
+              <article key={movie.id}>
+                <Link to={`/movie/${movie.id}`}>
+                  <div className="movie-header">
+                    <img
+                      className="backdrop"
+                      width="398"
+                      height="224"
+                      src={
+                        movie.backdrop_path
+                          ? backdropUrl(movie.backdrop_path)
+                          : placeholderBackdrop
+                      }
+                      alt={movie.title}
+                    />
+                    <img
+                      className="poster"
+                      width="80"
+                      height="120"
+                      src={
+                        movie.poster_path
+                          ? posterUrl(movie.poster_path)
+                          : placeholder
+                      }
+                      alt={movie.title}
+                    />
+                  </div>
+                </Link>
+                <h2>{movie.title}</h2>
+                <dl>
+                  <dt>Release date:</dt>
+                  <dd>{movie.release_date}</dd>
+                </dl>
+                <div className="overview">
+                  <h3 className="sr">Overview:</h3>
+                  <p>{movie.overview}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     );
   }
