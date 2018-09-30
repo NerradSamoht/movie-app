@@ -6,6 +6,8 @@ import Movie from "./pages/Movie";
 import Actor from "./pages/Actor";
 import SearchBox from "./components/SearchBox";
 import "./css/style.scss";
+import ScrollToTop from "react-scroll-up";
+import up from "./assets/up_arrow_round.png";
 
 class App extends React.Component {
   render() {
@@ -17,6 +19,10 @@ class App extends React.Component {
           <Actor path="/actor/:id" />
           <SearchBox path="/search" />
         </Router>
+
+        <ScrollToTop showUnder={160}>
+          <img src={up} alt="" />
+        </ScrollToTop>
       </div>
     );
   }

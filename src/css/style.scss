@@ -7,15 +7,14 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.4;
 }
+[type="search"] {
+  min-height: 48px;
+}
 a h3 {
   color: hsl(245, 11%, 91%);
 }
 a {
   color: hsl(245, 11%, 91%);
-}
-button:hover {
-  background-color: rgba(255, 148, 246, 0.9);
-  color: #151515;
 }
 .movie-page > article {
   background: linear-gradient(
@@ -93,6 +92,9 @@ dt {
 dd {
   margin-left: 0;
 }
+dt {
+  font-weight: bold;
+}
 .cast dl,
 .filmography dl {
   margin: 0;
@@ -119,7 +121,6 @@ button {
     margin-left: 88px;
   }
   article {
-    /* border: 1px solid hsl(245, 9%, 47%); */
     margin-bottom: 20px;
   }
   dl {
@@ -135,7 +136,7 @@ button {
     position: absolute;
     left: 0;
     bottom: -25px;
-    box-shadow: 1px 1px 4px #3c3c42;
+    box-shadow: 1px 1px 4px hsla(0, 0%, 0%, 0.7);
   }
 }
 
@@ -143,6 +144,13 @@ button {
 .movie-page {
   .container {
     padding: 8px;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  .tagline {
+    margin-top: 0;
+    font-style: italic;
   }
   .poster {
     max-width: 130px;
@@ -152,8 +160,14 @@ button {
   }
   .cast {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 110px);
+    grid-template-columns: repeat(auto-fill, 100px);
     grid-gap: 1rem;
+    img.poster {
+      padding-right: 0;
+    }
+    h3 {
+      font-size: 0.75rem;
+    }
   }
 }
 
@@ -168,10 +182,16 @@ button {
     float: left;
     padding-right: 8px;
   }
-  .cast {
+  .movie-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 110px);
+    grid-template-columns: repeat(auto-fill, 100px);
     grid-gap: 1rem;
+    img.poster {
+      padding-right: 0;
+    }
+    h3 {
+      font-size: 0.75rem;
+    }
   }
 }
 

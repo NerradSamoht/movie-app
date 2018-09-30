@@ -82,6 +82,8 @@ class Movie extends React.Component {
         <article>
           <div className="container">
             <div className="description">
+              <h1>{title}</h1>
+              <p className="tagline">{tagline}</p>
               <img
                 className="poster"
                 src={image ? posterUrl(image) : placeholder}
@@ -89,8 +91,6 @@ class Movie extends React.Component {
                 height="278"
                 alt={title}
               />
-              <h1>{title}</h1>
-              <p>{tagline}</p>
               <dl>
                 <dt>Release date:</dt>
                 <dd>{releaseDate}</dd>
