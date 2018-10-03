@@ -1,10 +1,11 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import Credits from "../components/Credits";
-import SearchBox from "../components/SearchBox";
-import placeholder from "../assets/placeholder.png";
-import { personUrl, posterUrl } from "../js/tmdb";
-import { getAge } from "../js/helper";
+import Credits from "../../components/Credits";
+import SearchBox from "../../components/SearchBox";
+import placeholder from "../../assets/placeholder.png";
+import { personUrl, posterUrl } from "../../js/tmdb";
+import { getAge } from "../../js/helper";
+import "./actor.scss";
 
 class Actor extends React.Component {
   state = {

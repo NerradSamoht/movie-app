@@ -1,0 +1,27 @@
+/* Movie Page */
+.movie-page {
+  .container {
+    padding: 8px;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  .tagline {
+    margin-top: 0;
+    font-style: italic;
+  }
+  .poster {
+    max-width: 130px;
+    height: auto;
+    float: left;
+    padding-right: 8px;
+  }
+  .cast {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-gap: 1rem;
+  }
+  img.poster {
+    padding-right: 0;
+  }
+}

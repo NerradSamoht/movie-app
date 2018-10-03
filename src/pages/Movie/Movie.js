@@ -1,9 +1,10 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import { movieUrl, backdropUrl, posterUrl } from "../js/tmdb";
-import Cast from "../components/Cast";
-import SearchBox from "../components/SearchBox";
-import placeholder from "../assets/placeholder.png";
+import { movieUrl, backdropUrl, posterUrl } from "../../js/tmdb";
+import Cast from "../../components/Cast";
+import SearchBox from "../../components/SearchBox";
+import placeholder from "../../assets/placeholder.png";
+import "./movie.scss";
 
 class Movie extends React.Component {
   state = {

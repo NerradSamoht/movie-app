@@ -54,11 +54,11 @@ class SearchBox extends React.Component {
         />
         {multilist && (
           <ul id="multilist">
-            {multilist.map(item => {
+            {multilist.map((item, index) => {
               if (item.media_type === "person") {
                 return (
-                  <li key={item.id}>
-                    <Link to={`/actor/${item.id}`}>
+                  <Link key={item.id + index} to={`/actor/${item.id}`}>
+                    <li>
                       <img
                         className="img-autocomplete"
                         width="100"
@@ -70,14 +70,14 @@ class SearchBox extends React.Component {
                         }
                         alt={item.name}
                       />
-                    </Link>
-                    {item.name} (actor)
-                  </li>
+                      {item.name} (actor)
+                    </li>
+                  </Link>
                 );
               } else if (item.media_type === "movie") {
                 return (
-                  <li key={item.id}>
-                    <Link to={`/movie/${item.id}`}>
+                  <Link key={item.id + index} to={`/movie/${item.id}`}>
+                    <li>
                       <img
                         className="img-autocomplete"
                         width="100"
@@ -89,9 +89,9 @@ class SearchBox extends React.Component {
                         }
                         alt={item.title}
                       />
-                    </Link>
-                    {item.title} (movie)
-                  </li>
+                      {item.title} (movie)
+                    </li>
+                  </Link>
                 );
               } else {
                 return null;

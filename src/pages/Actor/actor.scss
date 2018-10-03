@@ -1,0 +1,20 @@
+/* Actor Page */
+.actor-page {
+  .container {
+    padding: 8px;
+  }
+  .poster {
+    max-width: 130px;
+    height: auto;
+    float: left;
+    padding-right: 8px;
+  }
+  .movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-gap: 1rem;
+  }
+  img.poster {
+    padding-right: 0;
+  }
+}

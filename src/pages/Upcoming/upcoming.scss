@@ -1,0 +1,28 @@
+/* Upcoming Page */
+.upcoming-page {
+  .poster {
+    max-width: 80px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 20px;
+  }
+  h2 {
+    margin-top: 0;
+    margin-left: 88px;
+  }
+  article {
+    margin-bottom: 20px;
+  }
+
+  .movie-header {
+    position: relative;
+  }
+  .movie-header img:nth-child(2) {
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+    box-shadow: 1px 1px 4px hsla(0, 0%, 0%, 0.7);
+  }
+}

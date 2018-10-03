@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { upcomingUrl, posterUrl, backdropUrl } from "../js/tmdb";
-import SearchBox from "../components/SearchBox";
-import placeholder from "../assets/placeholder.png";
-import placeholderBackdrop from "../assets/placeholder-backdrop.png";
+import { upcomingUrl, posterUrl, backdropUrl } from "../../js/tmdb";
+import SearchBox from "../../components/SearchBox";
+import placeholder from "../../assets/placeholder.png";
+import placeholderBackdrop from "../../assets/placeholder-backdrop.png";
+import "./upcoming.scss";
 
 class Upcoming extends React.Component {
   state = {

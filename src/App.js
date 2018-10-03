@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
-import Upcoming from "./pages/Upcoming";
-import Movie from "./pages/Movie";
-import Actor from "./pages/Actor";
+import Upcoming from "./pages/Upcoming/Upcoming";
+import Movie from "./pages/Movie/Movie";
+import Actor from "./pages/Actor/Actor";
 import SearchBox from "./components/SearchBox";
 import "./css/style.scss";
 import ScrollToTop from "react-scroll-up";
