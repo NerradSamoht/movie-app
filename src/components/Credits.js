@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { filmographyUrl, posterUrl } from "../js/tmdb";
-import placeholder from "../assets/placeholder.png";
 import { calculateAge } from "../js/helper";
 import { sortBy } from "underscore";
 
@@ -51,24 +50,24 @@ class Credits extends React.Component {
                     src={
                       movie.poster_path
                         ? posterUrl(movie.poster_path)
-                        : placeholder
+                        : "/placeholder.png"
                     }
                     width="185"
                     height="278"
                     alt={movie.title}
                   />
                   <h3>{movie.title}</h3>
+                  <dl>
+                    <dt className="sr">Character:</dt>
+                    <dd>{movie.character}</dd>
+                    <dt className="sr">Year released:</dt>
+                    <dd>
+                      {movie.release_date
+                        ? movie.release_date.substring(0, 4)
+                        : "Not specified"}
+                    </dd>
+                  </dl>
                 </Link>
-                <dl>
-                  <dt className="sr">Character:</dt>
-                  <dd>{movie.character}</dd>
-                  <dt className="sr">Year released:</dt>
-                  <dd>
-                    {movie.release_date
-                      ? movie.release_date.substring(0, 4)
-                      : "Not specified"}
-                  </dd>
-                </dl>
               </div>
             );
           })}

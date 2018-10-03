@@ -2,7 +2,6 @@ import React from "react";
 import { navigate } from "@reach/router";
 import Credits from "../components/Credits";
 import SearchBox from "../components/SearchBox";
-import placeholder from "../assets/placeholder.png";
 import { personUrl, posterUrl } from "../js/tmdb";
 import { getAge } from "../js/helper";
 
@@ -60,7 +59,7 @@ class Actor extends React.Component {
           <div className="description">
             <img
               className="poster"
-              src={image ? posterUrl(image) : placeholder}
+              src={image ? posterUrl(image) : "/placeholder.png"}
               width="185"
               height="278"
               alt={name}

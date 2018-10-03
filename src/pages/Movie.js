@@ -3,7 +3,6 @@ import { navigate } from "@reach/router";
 import { movieUrl, backdropUrl, posterUrl } from "../js/tmdb";
 import Cast from "../components/Cast";
 import SearchBox from "../components/SearchBox";
-import placeholder from "../assets/placeholder.png";
 
 class Movie extends React.Component {
   state = {
@@ -86,7 +85,7 @@ class Movie extends React.Component {
               <p className="tagline">{tagline}</p>
               <img
                 className="poster"
-                src={image ? posterUrl(image) : placeholder}
+                src={image ? posterUrl(image) : "/placeholder.png"}
                 width="185"
                 height="278"
                 alt={title}

@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 import { upcomingUrl, posterUrl, backdropUrl } from "../js/tmdb";
 import SearchBox from "../components/SearchBox";
-import placeholder from "../assets/placeholder.png";
-import placeholderBackdrop from "../assets/placeholder-backdrop.png";
 
 class Upcoming extends React.Component {
   state = {
@@ -40,7 +38,7 @@ class Upcoming extends React.Component {
                       src={
                         movie.backdrop_path
                           ? backdropUrl(movie.backdrop_path)
-                          : placeholderBackdrop
+                          : "/placeholder-backdrop.png"
                       }
                       alt={movie.title}
                     />
@@ -51,21 +49,21 @@ class Upcoming extends React.Component {
                       src={
                         movie.poster_path
                           ? posterUrl(movie.poster_path)
-                          : placeholder
+                          : "/placeholder.png"
                       }
                       alt={movie.title}
                     />
                   </div>
+                  <h2>{movie.title}</h2>
+                  <dl>
+                    <dt>Release date:</dt>
+                    <dd>{movie.release_date}</dd>
+                  </dl>
+                  <div className="overview">
+                    <h3 className="sr">Overview:</h3>
+                    <p>{movie.overview}</p>
+                  </div>
                 </Link>
-                <h2>{movie.title}</h2>
-                <dl>
-                  <dt>Release date:</dt>
-                  <dd>{movie.release_date}</dd>
-                </dl>
-                <div className="overview">
-                  <h3 className="sr">Overview:</h3>
-                  <p>{movie.overview}</p>
-                </div>
               </article>
             );
           })}

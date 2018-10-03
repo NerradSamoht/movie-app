@@ -1,13 +1,10 @@
 import React from "react";
-import { render } from "react-dom";
 import { Router } from "@reach/router";
 import Upcoming from "./pages/Upcoming";
 import Movie from "./pages/Movie";
 import Actor from "./pages/Actor";
 import SearchBox from "./components/SearchBox";
-import "./css/style.scss";
 import ScrollToTop from "react-scroll-up";
-import up from "./assets/up_arrow_round.png";
 
 class App extends React.Component {
   render() {
@@ -21,11 +18,11 @@ class App extends React.Component {
         </Router>
 
         <ScrollToTop showUnder={160}>
-          <img src={up} alt="" />
+          <img src="/up_arrow_round.png" alt="" />
         </ScrollToTop>
       </div>
     );
   }
 }
 
-render(<App />, document.getElementById("root"));
+export default App;

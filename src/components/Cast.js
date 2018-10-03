@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { creditsUrl, posterUrl } from "../js/tmdb";
-import placeholder from "../assets/placeholder.png";
 
 class Cast extends React.Component {
   state = {
@@ -33,18 +32,18 @@ class Cast extends React.Component {
                   src={
                     actor.profile_path
                       ? posterUrl(actor.profile_path)
-                      : placeholder
+                      : "/placeholder.png"
                   }
                   width="185"
                   height="278"
                   alt={actor.name}
                 />
                 <h3>{actor.name}</h3>
+                <dl>
+                  <dt className="sr">Character:</dt>
+                  <dd>{actor.character}</dd>
+                </dl>
               </Link>
-              <dl>
-                <dt className="sr">Character:</dt>
-                <dd>{actor.character}</dd>
-              </dl>
             </div>
           );
         })}
