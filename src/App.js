@@ -5,7 +5,7 @@ import Upcoming from "./pages/Upcoming/Upcoming";
 import Movie from "./pages/Movie/Movie";
 import Actor from "./pages/Actor/Actor";
 import SearchBox from "./components/SearchBox";
-import "./css/style.scss";
+import "./css/loaded-styles.scss";
 import ScrollToTop from "react-scroll-up";
 import up from "./assets/up_arrow_round.png";
 
