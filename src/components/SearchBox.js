@@ -2,11 +2,12 @@ import React from "react";
 import { searchUrl, posterUrl } from "../js/tmdb";
 import { Link } from "@reach/router";
 import placeholder from "../assets/placeholder.png";
+import "./searchBox.scss";
 
 class SearchBox extends React.Component {
   state = {
     text: "",
-    multilist: []
+    multilist: null
   };
 
   handleSearchChange = event => {
@@ -21,7 +22,7 @@ class SearchBox extends React.Component {
   getMultiList() {
     if (this.state.text.length < 3) {
       this.setState({
-        multilist: []
+        multilist: null
       });
       return;
     }
@@ -52,6 +53,7 @@ class SearchBox extends React.Component {
           placeholder="Enter actor or movie"
           list="multilist"
         />
+
         {multilist && (
           <ul id="multilist">
             {multilist.map((item, index) => {
@@ -70,7 +72,8 @@ class SearchBox extends React.Component {
                         }
                         alt={item.name}
                       />
-                      {item.name} (actor)
+                      <p>{item.name}</p>
+                      <p>actor</p>
                     </li>
                   </Link>
                 );
@@ -89,7 +92,12 @@ class SearchBox extends React.Component {
                         }
                         alt={item.title}
                       />
-                      {item.title} (movie)
+                      <p>{item.title}</p>
+                      <p>
+                        {item.release_date
+                          ? item.release_date.substring(0, 4)
+                          : "movie"}
+                      </p>
                     </li>
                   </Link>
                 );

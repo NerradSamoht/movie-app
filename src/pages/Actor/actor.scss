@@ -10,11 +10,18 @@
     padding-right: 8px;
   }
   .movie-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 100px);
-    grid-gap: 1rem;
-  }
-  img.poster {
-    padding-right: 0;
+    @media (min-width: 400px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 100px);
+      grid-gap: 1rem;
+    }
+    display: flex;
+    flex-direction: column;
+    > div {
+      margin-bottom: 8px;
+    }
+    .poster {
+      max-width: 80px;
+    }
   }
 }

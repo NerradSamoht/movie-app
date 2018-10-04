@@ -1,0 +1,37 @@
+.search {
+  position: relative;
+  [id="multilist"] {
+    margin: 0;
+    background: #0f0c29;
+    position: absolute;
+    height: 400px;
+    overflow-y: scroll;
+    width: 100%;
+    list-style: none;
+    padding: 0 0 0 1rem;
+  }
+  img {
+    width: 50px;
+    height: auto;
+  }
+  li {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 37.5px 37.5px;
+    column-gap: 10px;
+    margin-bottom: 8px;
+    img {
+      grid-row: 1/2;
+    }
+    p {
+      margin: 0;
+    }
+    p:nth-child(2) {
+      align-self: flex-end;
+    }
+    p:last-child {
+      grid-column: 2;
+      opacity: 0.7;
+    }
+  }
+}

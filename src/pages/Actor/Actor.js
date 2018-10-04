@@ -59,6 +59,7 @@ class Actor extends React.Component {
         <SearchBox />
         <article className="container">
           <div className="description">
+            <h1>{name}</h1>
             <img
               className="poster"
               src={image ? posterUrl(image) : placeholder}
@@ -66,7 +67,6 @@ class Actor extends React.Component {
               height="278"
               alt={name}
             />
-            <h1>{name}</h1>
             <dl>
               <dt>Age:</dt>
               <dd>{age}</dd>

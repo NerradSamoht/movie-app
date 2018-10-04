@@ -25,11 +25,7 @@ a {
     padding-bottom: 1rem;
   }
 }
-.movie-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 110px);
-  grid-gap: 1rem;
-}
+
 .cast h2 {
   grid-column: 1/-1;
 }
@@ -55,14 +51,7 @@ img {
   width: 100%;
   padding: 0.5rem;
 }
-[id="multilist"] {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 100px);
-  grid-gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0 1rem;
-}
+
 dt {
   float: left;
   margin-right: 8px;
