@@ -1,7 +1,6 @@
 import React from "react";
 import { navigate } from "@reach/router";
 import Credits from "../../components/Credits";
-import SearchBox from "../../components/SearchBox";
 import placeholder from "../../assets/placeholder.png";
 import { personUrl, posterUrl } from "../../js/tmdb";
 import { getAge } from "../../js/helper";
@@ -56,7 +55,6 @@ class Actor extends React.Component {
 
     return (
       <div className="actor-page">
-        <SearchBox />
         <article className="container">
           <div className="description">
             <h1>{name}</h1>

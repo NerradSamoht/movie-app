@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { upcomingUrl, posterUrl, backdropUrl } from "../../js/tmdb";
-import SearchBox from "../../components/SearchBox";
 import placeholder from "../../assets/placeholder.png";
 import placeholderBackdrop from "../../assets/placeholder-backdrop.png";
 import "./upcoming.scss";
@@ -26,7 +25,6 @@ class Upcoming extends React.Component {
   render() {
     return (
       <div className="container upcoming-page">
-        <SearchBox />
         <h1>Upcoming Movies</h1>
         <div className="grid">
           {this.state.movies.map(movie => {

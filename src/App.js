@@ -1,9 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
-import Upcoming from "./pages/Upcoming/Upcoming";
-import Movie from "./pages/Movie/Movie";
-import Actor from "./pages/Actor/Actor";
 import SearchBox from "./components/SearchBox";
 import "./css/loaded-styles.scss";
 import ScrollToTop from "react-scroll-up";
@@ -14,10 +11,10 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <Upcoming path="/" />
-          <Movie path="/movie/:id" />
-          <Actor path="/actor/:id" />
-          <SearchBox path="/search" />
+          <SearchBox path="/" />
+          {/* <Upcoming path="/" /> */}
+          {/* <Movie path="/movie/:id" /> */}
+          {/* <Actor path="/actor/:id" /> */}
         </Router>
 
         <ScrollToTop showUnder={160}>
