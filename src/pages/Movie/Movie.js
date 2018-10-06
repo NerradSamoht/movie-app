@@ -6,10 +6,14 @@ import Cast from "../../components/Cast/Cast";
 import placeholder from "../../assets/placeholder.png";
 import "./movie.scss";
 
+const maxLength = 250;
+
 class Movie extends React.Component {
   state = {
     genres: [],
     image: "",
+    extract: "",
+    readMore: true,
     overview: "",
     poster: "",
     releaseDate: "",
@@ -30,6 +34,11 @@ class Movie extends React.Component {
     }
   }
 
+  handleReadMore = event => {
+    event.preventDefault();
+    this.setState({ readMore: !this.state.readMore });
+  };
+
   getData() {
     const url = movieUrl(this.props.id);
 
@@ -41,6 +50,7 @@ class Movie extends React.Component {
           genres,
           image: data.poster_path,
           overview: data.overview,
+          extract: data.overview.substring(0, maxLength),
           poster: data.backdrop_path,
           releaseDate: data.release_date,
           runtime: data.runtime,
@@ -72,7 +82,9 @@ class Movie extends React.Component {
       releaseDate,
       runtime,
       tagline,
-      title
+      title,
+      extract,
+      readMore
     } = this.state;
 
     const bg = poster ? 'url("' + backdropUrl(poster) + '")' : "";
@@ -107,7 +119,27 @@ class Movie extends React.Component {
                 <dt>Genres:</dt>
                 <dd>{genres ? genres.join(", ") : "unknown"}</dd>
               </dl>
-              <p>{overview}</p>
+              {extract.length >= maxLength ? (
+                readMore ? (
+                  <p>
+                    {extract}
+                    ...
+                    <br />
+                    <a href="#" onClick={this.handleReadMore}>
+                      Show more
+                    </a>
+                  </p>
+                ) : (
+                  <p>
+                    {overview} <br />
+                    <a href="#" onClick={this.handleReadMore}>
+                      Show less
+                    </a>
+                  </p>
+                )
+              ) : (
+                <p>{overview}</p>
+              )}
             </div>
             <Cast id={this.props.id} />
           </div>

@@ -95,22 +95,26 @@ class Actor extends React.Component {
             {age ? <p>Age: {age}</p> : null}
             {dob ? <p>Date of birth: {dob}</p> : null}
             {placeOfBirth ? <p>Place of birth: {placeOfBirth}</p> : null}
-            {readMore ? (
-              <p>
-                {extract}
-                ...
-                <br />
-                <a href="#" onClick={this.handleReadMore}>
-                  Read more
-                </a>
-              </p>
+            {extract.length >= maxLength ? (
+              readMore ? (
+                <p>
+                  {extract}
+                  ...
+                  <br />
+                  <a href="#" onClick={this.handleReadMore}>
+                    Show more
+                  </a>
+                </p>
+              ) : (
+                <p>
+                  {biography} <br />
+                  <a href="#" onClick={this.handleReadMore}>
+                    Show less
+                  </a>
+                </p>
+              )
             ) : (
-              <p>
-                {biography} <br />
-                <a href="#" onClick={this.handleReadMore}>
-                  Read less
-                </a>
-              </p>
+              <p>{biography}</p>
             )}
           </div>
           <Credits id={this.props.id} dob={dob} />
