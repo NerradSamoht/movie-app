@@ -17,6 +17,7 @@ class Credits extends React.Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const url = filmographyUrl(this.props.id);
 
     fetch(url)

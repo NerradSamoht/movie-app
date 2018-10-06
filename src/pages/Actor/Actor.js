@@ -6,9 +6,13 @@ import { personUrl, posterUrl } from "../../js/tmdb";
 import { getAge } from "../../js/helper";
 import "./actor.scss";
 
+const maxLength = 250;
+
 class Actor extends React.Component {
   state = {
     image: "",
+    extract: "",
+    readMore: true,
     biography: "",
     dob: "",
     deathday: null,
@@ -18,6 +22,7 @@ class Actor extends React.Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.getData();
   }
 
@@ -36,6 +41,7 @@ class Actor extends React.Component {
         this.setState({
           image: data.profile_path,
           biography: data.biography,
+          extract: data.biography.substring(0, maxLength),
           dob: data.birthday,
           deathday: data.deathday,
           name: data.name,
@@ -48,6 +54,11 @@ class Actor extends React.Component {
       });
   }
 
+  handleReadMore = event => {
+    event.preventDefault();
+    this.setState({ readMore: !this.state.readMore });
+  };
+
   render() {
     if (this.state.loading) {
       return (
@@ -58,7 +69,15 @@ class Actor extends React.Component {
       );
     }
 
-    const { name, dob, placeOfBirth, biography, image } = this.state;
+    const {
+      name,
+      dob,
+      placeOfBirth,
+      biography,
+      image,
+      extract,
+      readMore
+    } = this.state;
     const age = getAge(dob);
 
     return (
@@ -76,7 +95,23 @@ class Actor extends React.Component {
             {age ? <p>Age: {age}</p> : null}
             {dob ? <p>Date of birth: {dob}</p> : null}
             {placeOfBirth ? <p>Place of birth: {placeOfBirth}</p> : null}
-            <p>{biography}</p>
+            {readMore ? (
+              <p>
+                {extract}
+                ...
+                <br />
+                <a href="#" onClick={this.handleReadMore}>
+                  Read more
+                </a>
+              </p>
+            ) : (
+              <p>
+                {biography} <br />
+                <a href="#" onClick={this.handleReadMore}>
+                  Read less
+                </a>
+              </p>
+            )}
           </div>
           <Credits id={this.props.id} dob={dob} />
         </article>
