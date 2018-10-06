@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { creditsUrl, posterUrl } from "../js/tmdb";
+import { creditsUrl, posterUrl } from "../../js/tmdb";
 import placeholder from "../assets/placeholder.png";
+import unqid from "uniqid";
 
 class Cast extends React.Component {
   state = {
@@ -26,7 +27,7 @@ class Cast extends React.Component {
         <h2>Cast</h2>
         {this.state.cast.map(actor => {
           return (
-            <div key={actor.id}>
+            <div key={unqid()}>
               <Link to={`/actor/${actor.id}`}>
                 <img
                   className="poster"

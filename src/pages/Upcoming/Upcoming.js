@@ -5,6 +5,7 @@ import SearchBox from "../../components/SearchBox";
 import placeholder from "../../assets/placeholder.png";
 import placeholderBackdrop from "../../assets/placeholder-backdrop.png";
 import "./upcoming.scss";
+import unqid from "uniqid";
 
 class Upcoming extends React.Component {
   state = {
@@ -31,7 +32,7 @@ class Upcoming extends React.Component {
         <div className="grid">
           {this.state.movies.map(movie => {
             return (
-              <article key={movie.id}>
+              <article key={unqid()}>
                 <Link to={`/movie/${movie.id}`}>
                   <div className="movie-header">
                     <img

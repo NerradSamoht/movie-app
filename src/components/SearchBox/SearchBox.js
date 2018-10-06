@@ -1,8 +1,9 @@
 import React from "react";
-import { searchUrl, posterUrl } from "../js/tmdb";
+import { searchUrl, posterUrl } from "../../js/tmdb";
 import { Link } from "@reach/router";
 import placeholder from "../assets/placeholder.png";
 import "./searchBox.scss";
+import unqid from "uniqid";
 
 class SearchBox extends React.Component {
   state = {
@@ -59,7 +60,7 @@ class SearchBox extends React.Component {
             {multilist.map((item, index) => {
               if (item.media_type === "person") {
                 return (
-                  <Link key={item.id + index} to={`/actor/${item.id}`}>
+                  <Link key={unqid()} to={`/actor/${item.id}`}>
                     <li>
                       <img
                         className="img-autocomplete"
@@ -79,7 +80,7 @@ class SearchBox extends React.Component {
                 );
               } else if (item.media_type === "movie") {
                 return (
-                  <Link key={item.id + index} to={`/movie/${item.id}`}>
+                  <Link key={unqid()} to={`/movie/${item.id}`}>
                     <li>
                       <img
                         className="img-autocomplete"
