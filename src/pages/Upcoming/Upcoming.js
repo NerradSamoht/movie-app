@@ -1,36 +1,18 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { upcomingUrl, posterUrl, backdropUrl } from "../../js/tmdb";
-import SearchBox from "../../components/SearchBox";
+import { posterUrl, backdropUrl } from "../../js/tmdb";
 import placeholder from "../../assets/placeholder.png";
 import placeholderBackdrop from "../../assets/placeholder-backdrop.png";
 import "./upcoming.scss";
 import unqid from "uniqid";
 
 class Upcoming extends React.Component {
-  state = {
-    movies: []
-  };
-
-  componentDidMount() {
-    const url = upcomingUrl();
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          movies: data.results
-        });
-      });
-  }
-
   render() {
     return (
       <div className="container upcoming-page">
-        <SearchBox />
         <h1>Upcoming Movies</h1>
         <div className="grid">
-          {this.state.movies.map(movie => {
+          {this.props.movies.map(movie => {
             return (
               <article key={unqid()}>
                 <Link to={`/movie/${movie.id}`}>

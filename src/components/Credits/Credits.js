@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { filmographyUrl, posterUrl } from "../../js/tmdb";
-import placeholder from "../assets/placeholder.png";
+import placeholder from "../../assets/placeholder.png";
 import { calculateAge } from "../../js/helper";
 import { sortBy } from "underscore";
 import unqid from "uniqid";
@@ -67,7 +67,7 @@ class Credits extends React.Component {
                   <dd>
                     {movie.release_date
                       ? movie.release_date.substring(0, 4)
-                      : "Not specified"}
+                      : ""}
                   </dd>
                 </dl>
               </div>

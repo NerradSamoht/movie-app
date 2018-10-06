@@ -19,3 +19,14 @@ export const calculateAge = (dob, fromDate) => {
   }
   return age;
 };
+
+export const calculateRuntime = runtime => {
+  if (runtime < 60) return runtime + " mins";
+
+  const hours = Math.floor(runtime / 60);
+  const hrs = hours > 1 ? hours + " hrs" : hours + " hr";
+  const minutes = runtime % 60;
+  const mins = minutes > 1 ? minutes + " mins" : minutes + " min";
+
+  return `${hrs} ${mins}`;
+};

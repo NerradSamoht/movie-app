@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { creditsUrl, posterUrl } from "../../js/tmdb";
-import placeholder from "../assets/placeholder.png";
+import placeholder from "../../assets/placeholder.png";
 import unqid from "uniqid";
 
 class Cast extends React.Component {
@@ -10,6 +10,16 @@ class Cast extends React.Component {
   };
 
   componentDidMount() {
+    this.getData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id) {
+      this.getData();
+    }
+  }
+
+  getData() {
     const url = creditsUrl(this.props.id);
 
     fetch(url)

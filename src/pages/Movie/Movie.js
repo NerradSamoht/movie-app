@@ -1,15 +1,13 @@
 import React from "react";
 import { navigate } from "@reach/router";
 import { movieUrl, backdropUrl, posterUrl } from "../../js/tmdb";
-import Cast from "../../components/Cast";
-import SearchBox from "../../components/SearchBox";
+import { calculateRuntime } from "../../js/helper";
+import Cast from "../../components/Cast/Cast";
 import placeholder from "../../assets/placeholder.png";
 import "./movie.scss";
 
 class Movie extends React.Component {
   state = {
-    loading: true,
-    id: "",
     genres: [],
     image: "",
     overview: "",
@@ -17,10 +15,21 @@ class Movie extends React.Component {
     releaseDate: "",
     runtime: "",
     tagline: "",
-    title: ""
+    title: "",
+    loading: true
   };
 
   componentDidMount() {
+    this.getData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id) {
+      this.getData();
+    }
+  }
+
+  getData() {
     const url = movieUrl(this.props.id);
 
     fetch(url)
@@ -28,7 +37,6 @@ class Movie extends React.Component {
       .then(data => {
         const genres = data.genres.map(genre => genre.name);
         this.setState({
-          id: data.id,
           genres,
           image: data.poster_path,
           overview: data.overview,
@@ -56,7 +64,6 @@ class Movie extends React.Component {
     }
 
     const {
-      id,
       genres,
       image,
       overview,
@@ -67,7 +74,7 @@ class Movie extends React.Component {
       title
     } = this.state;
 
-    const bg = 'url("' + backdropUrl(poster) + '")';
+    const bg = poster ? 'url("' + backdropUrl(poster) + '")' : "";
 
     const bgStyles = {
       backgroundImage: bg,
@@ -79,7 +86,6 @@ class Movie extends React.Component {
 
     return (
       <div style={bgStyles} className="movie-page">
-        <SearchBox />
         <article>
           <div className="container">
             <div className="description">
@@ -94,15 +100,15 @@ class Movie extends React.Component {
               />
               <dl>
                 <dt>Release date:</dt>
-                <dd>{releaseDate}</dd>
+                <dd>{releaseDate ? releaseDate : "unknown"}</dd>
                 <dt>Runtime:</dt>
-                <dd>{runtime}</dd>
+                <dd>{runtime ? calculateRuntime(runtime) : "unknown"}</dd>
                 <dt>Genres:</dt>
-                <dd>{genres.join(", ")}</dd>
+                <dd>{genres ? genres.join(", ") : "unknown"}</dd>
               </dl>
               <p>{overview}</p>
             </div>
-            <Cast id={id} />
+            <Cast id={this.props.id} />
           </div>
         </article>
       </div>
