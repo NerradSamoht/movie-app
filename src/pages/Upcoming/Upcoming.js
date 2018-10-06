@@ -42,13 +42,15 @@ class Upcoming extends React.Component {
                   </div>
                 </Link>
                 <h2>{movie.title}</h2>
-                <dl>
-                  <dt>Release date:</dt>
-                  <dd>{movie.release_date}</dd>
-                </dl>
-                <div className="overview">
-                  <h3 className="sr">Overview:</h3>
-                  <p>{movie.overview}</p>
+                <div className="content">
+                  <dl>
+                    <dt>Release date:</dt>
+                    <dd>{movie.release_date}</dd>
+                  </dl>
+                  <div className="overview">
+                    <h3 className="sr">Overview:</h3>
+                    <p>{movie.overview}</p>
+                  </div>
                 </div>
               </article>
             );
