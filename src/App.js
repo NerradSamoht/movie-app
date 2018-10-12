@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { Router } from "@reach/router";
+import { Router, Link } from "@reach/router";
 import Upcoming from "./pages/Upcoming/Upcoming";
 import Movie from "./pages/Movie/Movie";
 import Actor from "./pages/Actor/Actor";
@@ -67,12 +67,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <SearchBox
-          multilist={this.state.multilist}
-          handleSearchChange={this.handleSearchChange}
-          handleSearchClick={this.handleSearchClick}
-          text={this.state.text}
-        />
+        <div className="nav-container">
+          <div>
+            <Link className="home" to="/">
+              🏠
+            </Link>
+          </div>
+          <SearchBox
+            multilist={this.state.multilist}
+            handleSearchChange={this.handleSearchChange}
+            handleSearchClick={this.handleSearchClick}
+            text={this.state.text}
+          />
+        </div>
         <Router>
           <Upcoming path="/" movies={this.state.movies} />
           <Movie path="/movie/:id" id={this.state.id} />

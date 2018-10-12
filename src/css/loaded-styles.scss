@@ -97,3 +97,15 @@ button:hover {
 *:focus {
   outline: 3px dashed orangered;
 }
+
+.nav-container {
+  display: flex;
+  .home {
+    font-size: 2rem;
+    padding: 4px;
+    background-color: orchid;
+  }
+  .search {
+    flex: 1;
+  }
+}
