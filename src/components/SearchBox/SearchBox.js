@@ -29,13 +29,12 @@ class SearchBox extends React.Component {
               {multilist.map((item, index) => {
                 if (item.media_type === "person") {
                   return (
-                    <Link
-                      key={unqid()}
-                      to={`/actor/${item.id}`}
-                      dataset-id={item.id}
-                      onClick={this.props.handleSearchClick}
-                    >
-                      <li>
+                    <li key={unqid()}>
+                      <Link
+                        to={`/actor/${item.id}`}
+                        dataset-id={item.id}
+                        onClick={this.props.handleSearchClick}
+                      >
                         <img
                           className="img-autocomplete"
                           width="100"
@@ -49,18 +48,17 @@ class SearchBox extends React.Component {
                         />
                         <p>{item.name}</p>
                         <p>actor</p>
-                      </li>
-                    </Link>
+                      </Link>
+                    </li>
                   );
                 } else if (item.media_type === "movie") {
                   return (
-                    <Link
-                      key={unqid()}
-                      to={`/movie/${item.id}`}
-                      dataset-id={item.id}
-                      onClick={this.props.handleSearchClick}
-                    >
-                      <li>
+                    <li key={unqid()}>
+                      <Link
+                        to={`/movie/${item.id}`}
+                        dataset-id={item.id}
+                        onClick={this.props.handleSearchClick}
+                      >
                         <img
                           className="img-autocomplete"
                           width="100"
@@ -78,8 +76,8 @@ class SearchBox extends React.Component {
                             ? item.release_date.substring(0, 4)
                             : "movie"}
                         </p>
-                      </li>
-                    </Link>
+                      </Link>
+                    </li>
                   );
                 } else {
                   return null;

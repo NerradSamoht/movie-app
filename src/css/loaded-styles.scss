@@ -1,3 +1,11 @@
+h1 {
+  padding: 0 4px;
+}
+@media (min-width: 1310px) {
+  h1 {
+    padding: 0;
+  }
+}
 a h3 {
   color: hsl(245, 11%, 91%);
 }
@@ -69,6 +77,23 @@ dt {
 .movie-age {
   margin: 0;
 }
+
 button {
   margin-bottom: 1em;
+  background-color: transparent;
+  color: #fff;
+  font-weight: normal;
+  padding: 8px;
+  min-width: 95px;
+  border: 1px solid #fff;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #272646;
+  border: 1px solid #272646;
+}
+
+*:focus {
+  outline: 3px dashed orangered;
 }

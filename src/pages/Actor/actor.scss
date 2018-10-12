@@ -3,25 +3,44 @@
   .container {
     padding: 8px;
   }
+  .tagline {
+    margin-top: 0;
+    font-style: italic;
+  }
   .poster {
-    max-width: 130px;
+    max-width: 100px;
     height: auto;
     float: left;
     padding-right: 8px;
+  }
+  @media (min-width: 400px) {
+    .poster {
+      max-width: 145px;
+    }
+  }
+  @media (min-width: 1230px) {
+    .poster {
+      max-width: 185px;
+    }
   }
   .movie-list {
     @media (min-width: 400px) {
       display: grid;
       grid-template-columns: repeat(auto-fill, 100px);
       grid-gap: 1rem;
+      .poster {
+        padding-right: 0;
+      }
+    }
+    @media (min-width: 1230px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 185px);
+      grid-gap: 1rem;
     }
     display: flex;
     flex-direction: column;
     > div {
       margin-bottom: 8px;
-    }
-    .poster {
-      max-width: 80px;
     }
   }
 }
