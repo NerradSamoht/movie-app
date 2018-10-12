@@ -13,7 +13,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "index.html",
+  "start_url": "/",
   "description": "Movie App - search by actor or movie title.",
   "background_color": "#0f0c29",
   "display": "standalone",
