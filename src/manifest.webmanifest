@@ -14,7 +14,9 @@
     }
   ],
   "start_url": "./index.html",
+  "description": "Movie App - search by actor or movie title.",
   "background_color": "#0f0c29",
   "display": "standalone",
-  "theme_color": "#0f0c29"
+  "theme_color": "#0f0c29",
+  "lang": "English"
 }
