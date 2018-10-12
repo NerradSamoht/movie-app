@@ -47,8 +47,6 @@ class Cast extends React.Component {
                       ? posterUrl(actor.profile_path)
                       : placeholder
                   }
-                  width="185"
-                  height="278"
                   alt={actor.name}
                 />
                 <h3>{actor.name}</h3>

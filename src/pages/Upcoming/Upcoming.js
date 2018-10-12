@@ -19,8 +19,6 @@ class Upcoming extends React.Component {
                   <div className="movie-header">
                     <img
                       className="backdrop"
-                      width="398"
-                      height="224"
                       src={
                         movie.backdrop_path
                           ? backdropUrl(movie.backdrop_path)
@@ -30,8 +28,6 @@ class Upcoming extends React.Component {
                     />
                     <img
                       className="poster"
-                      width="80"
-                      height="120"
                       src={
                         movie.poster_path
                           ? posterUrl(movie.poster_path)

@@ -55,8 +55,6 @@ class Credits extends React.Component {
                         ? posterUrl(movie.poster_path)
                         : placeholder
                     }
-                    width="185"
-                    height="278"
                     alt={movie.title}
                   />
                   <h3>{movie.title}</h3>

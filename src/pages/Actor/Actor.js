@@ -88,8 +88,6 @@ class Actor extends React.Component {
             <img
               className="poster"
               src={image ? posterUrl(image) : placeholder}
-              width="185"
-              height="278"
               alt={name}
             />
             {age ? <p>Age: {age}</p> : null}
