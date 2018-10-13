@@ -100,12 +100,27 @@ button:hover {
 
 .nav-container {
   display: flex;
+  div:first-child {
+    padding-right: 4px;
+    border-bottom: dashed 3px;
+  }
   .home {
-    font-size: 2rem;
-    padding: 4px;
-    background-color: orchid;
+    display: flex;
+    // font-size: 2rem;
+    // padding: 4px;
+    // background-color: orchid;
+  }
+  img {
+    width: unset;
   }
   .search {
     flex: 1;
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      height: 100%;
+      border-bottom: 0;
+      border-color: #0f0c29;
+    }
   }
 }

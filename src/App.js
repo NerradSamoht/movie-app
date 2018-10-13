@@ -8,6 +8,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import "./css/loaded-styles.scss";
 import ScrollToTop from "react-scroll-up";
 import up from "./assets/up_arrow_round.png";
+import logo from "./assets/movie-stars.svg";
 import { upcomingUrl, searchUrl } from "./js/tmdb";
 
 class App extends React.Component {
@@ -69,8 +70,8 @@ class App extends React.Component {
       <div>
         <div className="nav-container">
           <div>
-            <Link className="home" to="/">
-              🏠
+            <Link className="home" to="/" title="Home">
+              <img src={logo} alt="movie camera" width="48" height="48" />
             </Link>
           </div>
           <SearchBox
