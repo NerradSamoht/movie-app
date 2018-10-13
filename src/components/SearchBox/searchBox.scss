@@ -1,14 +1,14 @@
 .search {
-  position: relative;
   [id="multilist"] {
     margin: 0;
     background: #0f0c29;
     position: absolute;
+    left: 0;
     height: 400px;
     overflow-y: scroll;
     width: 100%;
     list-style: none;
-    padding: 8px;
+    padding: 0;
     z-index: 1;
   }
   img {
@@ -17,10 +17,11 @@
   }
   li a {
     display: grid;
-    grid-template-columns: 50px 1fr;
-    grid-template-rows: 37.5px 37.5px;
+    grid-template-columns: auto 1fr;
+    align-items: center;
     column-gap: 10px;
-    margin-bottom: 8px;
+    border-bottom: 1px solid#4d4b5a;
+    padding: 8px 4px;
     img {
       grid-row: 1/2;
     }

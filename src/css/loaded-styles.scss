@@ -1,9 +1,13 @@
+.bold {
+  font-weight: bold;
+}
 h1 {
-  padding: 0 4px;
+  font-size: 2rem;
+  // padding: 0 4px;
 }
 @media (min-width: 1310px) {
   h1 {
-    padding: 0;
+    // padding: 0;
   }
 }
 a h3 {
@@ -94,21 +98,19 @@ button:hover {
   border: 1px solid #272646;
 }
 
-*:focus {
-  outline: 3px dashed orangered;
-}
+// *:focus {
+//   outline: 3px dashed orangered;
+// }
 
 .nav-container {
   display: flex;
+  position: relative;
   div:first-child {
     padding-right: 4px;
     border-bottom: dashed 3px;
   }
   .home {
     display: flex;
-    // font-size: 2rem;
-    // padding: 4px;
-    // background-color: orchid;
   }
   img {
     width: unset;

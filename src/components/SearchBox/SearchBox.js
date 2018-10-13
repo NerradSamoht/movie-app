@@ -46,8 +46,10 @@ class SearchBox extends React.Component {
                           }
                           alt={item.name}
                         />
-                        <p>{item.name}</p>
-                        <p>actor</p>
+                        <div>
+                          <p>{item.name}</p>
+                          <p>actor</p>
+                        </div>
                       </Link>
                     </li>
                   );
@@ -70,12 +72,14 @@ class SearchBox extends React.Component {
                           }
                           alt={item.title}
                         />
-                        <p>{item.title}</p>
-                        <p>
-                          {item.release_date
-                            ? item.release_date.substring(0, 4)
-                            : "movie"}
-                        </p>
+                        <div>
+                          <p>{item.title}</p>
+                          <p>
+                            {item.release_date
+                              ? item.release_date.substring(0, 4)
+                              : "movie"}
+                          </p>
+                        </div>
                       </Link>
                     </li>
                   );

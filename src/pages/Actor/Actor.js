@@ -90,9 +90,21 @@ class Actor extends React.Component {
               src={image ? posterUrl(image) : placeholder}
               alt={name}
             />
-            {age ? <p>Age: {age}</p> : null}
-            {dob ? <p>Date of birth: {dob}</p> : null}
-            {placeOfBirth ? <p>Place of birth: {placeOfBirth}</p> : null}
+            {age ? (
+              <p>
+                <span className="bold">Age:</span> {age}
+              </p>
+            ) : null}
+            {dob ? (
+              <p>
+                <span className="bold">Date of birth:</span> {dob}
+              </p>
+            ) : null}
+            {placeOfBirth ? (
+              <p>
+                <span className="bold">Place of birth:</span> {placeOfBirth}
+              </p>
+            ) : null}
             {extract.length >= maxLength ? (
               readMore ? (
                 <p>
